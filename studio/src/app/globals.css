@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif; /* Default body font from PRD */
+}
+
+@layer base {
+  :root {
+    /* PRD Colors:
+       Primary: Dark purple (#4A148C) -> HSL ~276, 76%, 31%
+       Background: Light gray (#F5F5F5) -> HSL ~0, 0%, 96%
+       Accent: Teal (#008080) -> HSL ~180, 100%, 25%
+    */
+    --background: 0 0% 96%; /* #F5F5F5 Light Gray */
+    --foreground: 276 10% 20%; /* Darker text for contrast on light gray */
+
+    --card: 0 0% 100%; /* White cards for contrast */
+    --card-foreground: 276 10% 20%; 
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 276 10% 20%;
+
+    --primary: 276 76% 31%; /* #4A148C Dark Purple */
+    --primary-foreground: 0 0% 98%; /* Light text on dark purple */
+
+    --secondary: 276 30% 90%; /* Lighter, desaturated purple for secondary elements */
+    --secondary-foreground: 276 76% 25%; /* Darker purple text on secondary */
+
+    --muted: 0 0% 90%; /* Slightly darker gray for muted backgrounds */
+    --muted-foreground: 0 0% 45%; /* Gray for muted text */
+
+    --accent: 180 100% 25%; /* #008080 Teal */
+    --accent-foreground: 0 0% 98%; /* Light text on teal */
+
+    --destructive: 0 70% 50%; /* Standard destructive red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%; /* Light gray border, slightly darker than background */
+    --input: 0 0% 92%; /* Slightly darker input background for visibility */
+    --ring: 276 76% 45%; /* Ring color related to primary */
+    
+    --chart-1: 276 70% 55%; /* Purple variant */
+    --chart-2: 180 80% 35%; /* Teal variant */
+    --chart-3: 30 80% 60%;  /* Warm orange variant for charts */
+    --chart-4: 240 65% 60%; /* Blue variant for charts */
+    --chart-5: 0 0% 50%;   /* Neutral gray variant for charts */
+    --radius: 0.5rem; /* Default rounded corners */
+
+    /* Sidebar variables (can keep defaults or adjust if sidebar is used differently) */
+    --sidebar-background: 0 0% 98%; /* Consistent with main background or slightly off */
+    --sidebar-foreground: 276 10% 25%; 
+    --sidebar-primary: 276 76% 31%; 
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 180 100% 30%; 
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 276 76% 50%;
+  }
+
+  .dark {
+    /* Dark Mode Theme - Inverted and adjusted from PRD */
+    --background: 276 10% 15%; /* Dark desaturated purple/gray */
+    --foreground: 0 0% 90%; /* Light gray text */
+
+    --card: 276 10% 20%; /* Slightly lighter than background for cards */
+    --card-foreground: 0 0% 90%;
+
+    --popover: 276 10% 20%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 276 76% 55%; /* Brighter purple for dark mode */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 276 15% 25%; /* Darker secondary */
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 276 10% 25%;
+    --muted-foreground: 0 0% 65%; 
+
+    --accent: 180 100% 40%; /* Brighter Teal for dark mode */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 70% 60%; /* Brighter destructive red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 276 10% 30%; /* Darker border */
+    --input: 276 10% 30%;  /* Darker input */
+    --ring: 276 76% 65%; /* Lighter ring for dark */
+    
+    --chart-1: 276 70% 65%;
+    --chart-2: 180 80% 45%;
+    --chart-3: 30 80% 65%;
+    --chart-4: 240 65% 70%;
+    --chart-5: 0 0% 70%;
+
+    /* Sidebar variables for dark mode */
+    --sidebar-background: 276 10% 12%; 
+    --sidebar-foreground: 0 0% 85%; 
+    --sidebar-primary: 276 76% 55%; 
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 180 100% 45%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 276 10% 28%;
+    --sidebar-ring: 276 76% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-body antialiased; /* font-body will be 'Inter' */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline; /* font-headline will be 'Space Grotesk' */
+  }
+  /* Ensure code blocks/syntax highlighting use the code font */
+  pre, code, kbd, samp {
+    @apply font-code; /* font-code will be 'Source Code Pro' */
+  }
+}
